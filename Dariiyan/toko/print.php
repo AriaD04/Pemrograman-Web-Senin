@@ -39,12 +39,12 @@
 						<?php $no++; }?>
 					</table>
 					<div class="pull-right">
-						<?php $hasil = $lihat -> jumlah(); ?>
-						Total : Rp.<?php echo number_format($hasil['bayar']);?>,-
-						<br/>
-						Bayar : Rp.<?php echo number_format($_GET['bayar']);?>,-
-						<br/>
-						Kembali : Rp.<?php echo number_format($_GET['kembali']);?>,-
+    				<?php $hasil = $lihat->jumlah(); ?>
+   						 Total : Rp.<?php echo number_format($hasil['bayar'] ?? 0); ?>,-
+   						 <br/>
+  						  Bayar : Rp.<?php echo number_format(is_numeric($_GET['bayar']) ? $_GET['bayar'] : 0); ?>,-
+  						  <br/>
+   						 Kembali : Rp.<?php echo number_format(is_numeric($_GET['kembali']) ? $_GET['kembali'] : 0); ?>,-
 					</div>
 					<div class="clearfix"></div>
 					<center>
@@ -56,3 +56,4 @@
 		</div>
 	</body>
 </html>
+
