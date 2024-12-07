@@ -141,9 +141,10 @@
 			}
 
 			function jual(){
-				$sql ="SELECT nota.* , barang.id_barang, barang.nama_barang, member.id_member,
+				$sql ="SELECT nota.* , barang.id_barang, barang.nama_barang, detail_nota.jumlah, member.id_member,
 						member.nm_member from nota 
-					   left join barang on barang.id_barang=nota.id_barang 
+					   left join detail_nota on detail_nota.id_nota=nota.id_nota  
+					   left join barang on barang.id_barang=detail_nota.id_barang 
 					   left join member on member.id_member=nota.id_member 
 					   ORDER BY id_nota DESC";
 				$row = $this-> db -> prepare($sql);
